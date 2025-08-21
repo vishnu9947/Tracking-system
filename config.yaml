@@ -1,0 +1,6 @@
+employees:
+  - id: "0011"
+    name: "vishnu"
+    image_paths:
+      - "/home/force-4/Tracking_face/pics/j2.png"
+      - "/home/force-4/Tracking_face/pics/j1.png"

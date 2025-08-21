@@ -1,0 +1,31 @@
+import cv2
+
+# Replace this with your IP camera's HTTP (MJPEG) URL
+ip_camera_url = "http://admin:Admin$1234@192.168.1.104:554/video"
+
+# Open the video capture
+cap = cv2.VideoCapture(ip_camera_url)
+
+# Check if the camera opened successfully
+if not cap.isOpened():
+    print("Error: Could not open the video stream.")
+    exit()
+
+# Loop to continuously capture frames from the IP camera
+while True:
+    ret, frame = cap.read()  # Capture frame-by-frame
+
+    if not ret:
+        print("Error: Failed to capture image.")
+        break
+
+    # Display the resulting frame
+    cv2.imshow('IP Camera Stream (HTTP)', frame)
+
+    # Break the loop on 'q' key press
+    if cv2.waitKey(1) & 0xFF == ord('q'):
+        break
+
+# Release the capture and close any OpenCV windows
+cap.release()
+cv2.destroyAllWindows()
